@@ -1,6 +1,10 @@
 const express = require('express')
 const app = express()
 const port = 3000
+var cors = require('cors')
+
+app.use(cors()) //default : 모두허용
+
 app.get('/', function (req, res) {
     res.send('animal_sound의 main page 입니다')
 })
