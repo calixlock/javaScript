@@ -37,8 +37,6 @@ app.post('/query/:id',(req,res)=>{
     res.send(b)
 })
 
-
-
 // app.listen(3000)
 app.listen(port, () => {
     console.log(`listening on port : ${port}`)
