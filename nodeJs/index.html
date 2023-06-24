@@ -14,14 +14,13 @@
     <button onclick="getSound()">API 요청</button>
     <script>
         function getSound() {
-            const name = document.getElementById('name').value
             const response = await
+            const name = document.getElementById('name').value
             fetch(`localhost:3000/sound/${name}`)
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data)
-                document.getElementById('sound').innerHTML = data
-            });
+            const jsonData = await response.json();
+            console.log(jsonData);
+            document.getElementById('sound').innerHTML = jsonData
+
         }
     </script>
 </body>

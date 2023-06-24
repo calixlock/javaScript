@@ -10,11 +10,11 @@ app.get('/', function (req, res) {
 })
 //변수는 animalName
 app.get('/sound/:animalName',(req,res) => {
-    const p = req.params 
+    const p = req.params
     // console.log(`p : ${p}` )
     console.log(p)
     // req.params > animalName = 주소에 쓴 dog / cat
-    const {animalName} = req.params 
+    const {animalName} = req.params
     //value값이 바로 animalName에 적용됨 animalName = dog
     // console.log(animalName)
     if (animalName =="dog") res.json({'sound':'멍멍'})
