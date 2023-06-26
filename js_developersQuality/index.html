@@ -13,13 +13,13 @@
     <div class="container">
         <div>이름 : <input type="text" id="name"></div>
         <div>지역 : <select name="" id="city" onchange="changeCity();">
-                <option value="02">서울</option>
-                <option value="064">제주</option>
+                <!-- <option value="02" selected>서울</option>
+                <option value="064">제주</option> -->
             </select>
         </div>
         <div>동네 :
             <select name="" id="region_02" class="">
-                <option value="">광진구</option>
+                <option value="" selected>광진구</option>
                 <option value="">강남구</option>
             </select>
             <select name="" id="region_064" class="">
@@ -45,7 +45,11 @@
     <script>
         function regist() {
             alert(`이름 : ${document.getElementById("name").value} 기입\n지역 : ${document.getElementById("city").value} 선택`)
-            alert(`${$("#name").val()} ${$("#city").val()}`); //jquery 이용
+            // alert(`${$("#name").val()} ${$("#city").val()}`); //jquery 이용
+            let obj = {};
+            obj.name = $("#name").val();
+            obj.city = $("#city").val();
+            console.log(obj);
         }
         function changeCity() {
             // let city = document.getElementById("city").value;
@@ -55,8 +59,25 @@
             // document.getElementById("region_064").style.display = "none";
             $('#region_064').hide();
             // document.getElementById("region_"+city).style.display = "";
-            $('#region_'+city).show();
+            $('#region_' + city).show();
         }
+        changeCity();
+        
+        function loadCity() {
+            let city = [{
+                    code: "02",
+                    name: "서울" 
+                },
+                {
+                    code: "064",
+                    name: "제주" 
+                }
+            ];
+            $('#city').append('<option value="02" selected>서울</option>')
+            $('#city').append('<option value="064" >제주</option>')
+        }
+        loadCity();
+
     </script>
 
 </body>
