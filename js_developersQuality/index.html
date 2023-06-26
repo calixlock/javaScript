@@ -12,15 +12,26 @@
 <body>
     <div class="container">
         <div>이름 : <input type="text" id="name"></div>
-        <div>지역 : <select name="" id="city">
+        <div>지역 : <select name="" id="city" onchange="changeCity();">
                 <option value="02">서울</option>
                 <option value="064">제주</option>
-            </select></div>
-        <button type="submit" onclick="regist();" >등록</button>
+            </select>
+        </div>
+        <div>동네 :
+            <select name="" id="region_02" class="">
+                <option value="">광진구</option>
+                <option value="">강남구</option>
+            </select>
+            <select name="" id="region_064" class="">
+                <option value="">제주시</option>
+                <option value="">서귀포시</option>
+            </select>
+        </div>
+        <button type="submit" onclick="regist();">등록</button>
     </div>
-    
-    
-    
+
+
+
     <script src="https://code.jquery.com/jquery-3.7.0.js"
         integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 
@@ -35,6 +46,16 @@
         function regist() {
             alert(`이름 : ${document.getElementById("name").value} 기입\n지역 : ${document.getElementById("city").value} 선택`)
             alert(`${$("#name").val()} ${$("#city").val()}`); //jquery 이용
+        }
+        function changeCity() {
+            // let city = document.getElementById("city").value;
+            let city = $('#city').val();
+            // document.getElementById("region_02").style.display = "none";
+            $('#region_02').hide();
+            // document.getElementById("region_064").style.display = "none";
+            $('#region_064').hide();
+            // document.getElementById("region_"+city).style.display = "";
+            $('#region_'+city).show();
         }
     </script>
 
