@@ -61,21 +61,32 @@
             // document.getElementById("region_"+city).style.display = "";
             $('#region_' + city).show();
         }
-        changeCity();
-        
+
         function loadCity() {
             let city = [{
-                    code: "02",
-                    name: "서울" 
-                },
-                {
-                    code: "064",
-                    name: "제주" 
-                }
-            ];
-            $('#city').append('<option value="02" selected>서울</option>')
-            $('#city').append('<option value="064" >제주</option>')
+                code: "02",
+                name: "서울"
+            },
+            {
+                code: "064",
+                name: "제주"
+                
+            },
+            {
+                code: "031",
+                name: "경기"
+            }
+        ];
+
+            // $('#city').append('<option value="02" selected>서울</option>')
+            // $('#city').append('<option value="064" >제주</option>')
+
+            for (let id = 0; id < city.length; id++) {
+                if(id==0) $('#city').append('<option value="' + city[id].code + '" selected>' + city[id].name + '</option>');
+                else $('#city').append('<option value="'+city[id].code+'">'+city[id].name+'</option>');
+            }
         }
+
         loadCity();
 
     </script>
