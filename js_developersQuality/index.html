@@ -47,10 +47,13 @@
             alert(`이름 : ${document.getElementById("name").value} 기입\n지역 : ${document.getElementById("city").value} 선택`)
             // alert(`${$("#name").val()} ${$("#city").val()}`); //jquery 이용
             let obj = {};
+
             obj.name = $("#name").val();
             obj.city = $("#city").val();
+
             console.log(obj);
         }
+        
         function changeCity() {
             // let city = document.getElementById("city").value;
             let city = $('#city').val();

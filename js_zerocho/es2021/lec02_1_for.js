@@ -41,11 +41,18 @@ function star(num) {
     //     console.log('*'.repeat(5 - i));
     // }
 }
-star(5)
+star(5);
 
 function star1(num) {
     for (let i = 0; i<=num; i++){
         console.log(' '.repeat(i)+'*'.repeat(num-i))
     }
 }
-star1(5)
+star1(5);
+
+function cake(num) {
+    for (let i = 0; i<=num; i++){
+        console.log(' '.repeat(i)+'*'.repeat(num-i)+' '.repeat(i))
+    }
+}
+cake(1);
