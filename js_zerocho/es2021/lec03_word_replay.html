@@ -17,8 +17,8 @@
     <div>제시어 : <span id="word">
             <input type="text" name="" id="">
             <button>입력1</button>
-            <button class="btn">입력2</button>
-            <button class="btn">입력3</button>
+            <!-- <button class="btn">입력2</button> -->
+            <!-- <button class="btn">입력3</button> -->
         </span>
     </div>
 
@@ -40,6 +40,21 @@
         console.log(order);
         const span = document.querySelector('#word')
         console.log(span);
+        const onClickButton = () => {
+            console.log('버튼 클릭');
+            // return console.log('버튼 클릭');
+        };
+        function onclick() {
+            console.log('btn click');
+        }
+        // addEventListener(String,funcName) // funcName() >> undefined >> 동작x
+        document.querySelector('input').addEventListener('input', function (event) {
+            console.log('글자 입력중', event.target.value);
+        })
+        // document.querySelector('button').addEventListener('click', onclick);
+        document.querySelector('button').addEventListener('click', onClickButton);
+        
+
     </script>
 </body>
 
