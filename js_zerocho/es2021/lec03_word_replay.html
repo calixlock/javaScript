@@ -1,6 +1,7 @@
 <!--  -->
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,18 +11,35 @@
         /* css부분 */
     </style>
 </head>
+
 <body>
     <div><span id="order">1</span>번째 참가자</div>
-    <div>제시어 : <span id="word"></span></div>
-    <input type="text" name="" id="">
-    <button>입력</button>
+    <div>제시어 : <span id="word">
+            <input type="text" name="" id="">
+            <button>입력1</button>
+            <button class="btn">입력2</button>
+            <button class="btn">입력3</button>
+        </span>
+    </div>
 
 
     <script>
         // js 부분
-        const number = parseInt(prompt(" 몇 명이 참가하나요?"), 10); // parseInt(String, 진법)
-        alert(`number : ${number}, type : ${typeof number}`);
-        const yesNo = confirm("alright?");
+        // const number = parseInt(prompt(" 몇 명이 참가하나요?"), 10); // parseInt(String, 진법)
+        // alert(`number : ${number}, type : ${typeof number}`);
+        // const yesNo = confirm("alright?");
+
+        // const $btn = document.querySelector('button');
+        // console.log($btn)
+        const $$btn = document.querySelectorAll('button');
+        console.log($$btn);
+        console.log($$btn[0]);
+        const $$btn23 = document.querySelector('.btn');
+        console.log($$btn23);
+        const order = document.querySelector('#order')
+        console.log(order);
+        const span = document.querySelector('#word')
+        console.log(span);
     </script>
 </body>
 
