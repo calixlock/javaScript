@@ -5,3 +5,10 @@
     border-radius: 5px;
     display: none;
 }
+.alert-box2{
+    background: rgba(176, 206, 122, 0.637);
+    color: blue;
+    padding: 20px;
+    border-radius: 5px;
+    display: none;
+}

@@ -10,19 +10,27 @@
 </head>
 
 <body>
-    <button onclick="alertShow()">버튼</button>
+    <button onclick="alertOpt('아이디 입력하세요','block')">버튼1</button>
+    <button onclick="alertOpt('비번 입력하세요','block')">버튼2</button>
+
+
+
     <div class="alert-box" id="alert">
-        <p>Alert Box</p>
-        <button onclick="alertHide()">닫기</button>
+        <p id ="text">내용입력</p>
+        <button onclick="alertOpt('','none')">닫기</button>
     </div>
 
+
+
     <script>
-        const alertHide = ()=>{
-            document.getElementById('alert').style.display='';
+        function alertOpt(message,alertShowHide){
+            document.getElementById('text').innerHTML = message;
+            document.getElementById('alert').style.display = alertShowHide;
         }
-        const alertShow = ()=>{
-            document.getElementById('alert').style.display='block';
-        }
+        // const alertBlock = (alertText,parms)=>{
+        //     document.getElementById('text').innerHTML(alertText);
+        //     document.getElementById('alert').style.display=parms;
+        // }
     </script>
 </body>
 </html>
