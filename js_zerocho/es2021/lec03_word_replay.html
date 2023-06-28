@@ -25,31 +25,33 @@
 
     <script>
         // js 부분
-        // const number = parseInt(prompt(" 몇 명이 참가하나요?"), 10); // parseInt(String, 진법)
+        const number = parseInt(prompt(" 몇 명이 참가하나요?"), 10); // parseInt(String, 진법)
+        let word;
         // alert(`number : ${number}, type : ${typeof number}`);
         // const yesNo = confirm("alright?");
 
         // const $btn = document.querySelector('button');
         // console.log($btn)
-        const $$btn = document.querySelectorAll('button');
-        console.log($$btn);
-        console.log($$btn[0]);
-        const $$btn23 = document.querySelector('.btn');
-        console.log($$btn23);
-        const order = document.querySelector('#order')
-        console.log(order);
-        const span = document.querySelector('#word')
-        console.log(span);
+        // const $$btn = document.querySelectorAll('button');
+        // console.log($$btn);
+        // console.log($$btn[0]);
+        // const $$btn23 = document.querySelector('.btn');
+        // console.log($$btn23);
+        // const order = document.querySelector('#order')
+        // console.log(order);
+        // const span = document.querySelector('#word')
+        // console.log(span);
         const onClickButton = () => {
+            if(!word)
             console.log('버튼 클릭');
             // return console.log('버튼 클릭');
         };
-        function onclick() {
+        function onClick() {
             console.log('btn click');
         }
         // addEventListener(String,funcName) // funcName() >> undefined >> 동작x
         document.querySelector('input').addEventListener('input', function (event) {
-            console.log('글자 입력중', event.target.value);
+            console.log('글자 입력중', event.target.value); // event.target.value 사용자 입력값
         })
         // document.querySelector('button').addEventListener('click', onclick);
         document.querySelector('button').addEventListener('click', onClickButton);
