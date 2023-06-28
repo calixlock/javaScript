@@ -17,7 +17,8 @@
 
     <div class="alert-box" id="alert">
         <p id ="text">내용입력</p>
-        <button onclick="alertOpt('','none')">닫기</button>
+        <!-- <button onclick="alertOpt('','none')">닫기</button> -->
+        <button id="close">X</button>
     </div>
 
 
@@ -27,6 +28,10 @@
             document.getElementById('text').innerHTML = message;
             document.getElementById('alert').style.display = alertShowHide;
         }
+        // eventListener 여러 기능 있다. keydown/mouseover/click/scroll
+        document.getElementById('close').addEventListener('mouseover',function(){
+            document.getElementById('alert').style.display = 'none';
+        })
         // const alertBlock = (alertText,parms)=>{
         //     document.getElementById('text').innerHTML(alertText);
         //     document.getElementById('alert').style.display=parms;
