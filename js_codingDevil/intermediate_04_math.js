@@ -19,7 +19,10 @@ console.log('random (1~101) : ',Math.floor(Math.random()*100)+1);
 console.log(Math.abs(-1));
 console.log(Math.max(-1,213,10,23,2,1,24,));
 console.log(Math.min(-1,213,10,23,2,1,24,))
-console.log(Math.pow(2,3));//2^3
+console.log(Math.pow(2,3)); //2^3
 console.log(Math.sqrt(16)); //16^0.5
 
-
+let abcd = 'abcde';
+console.log(abcd.slice(2,-2));
+let num = '012345';
+console.log(num.substring(2,4));

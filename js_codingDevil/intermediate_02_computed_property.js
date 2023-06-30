@@ -38,7 +38,7 @@ const info2 = {
 }
 const fourthUser = Object.assign(user,info1,info2)
 console.log('4nd',fourthUser);
-// key / value / entries / fromEntries 
+// key / value / entries / fromEntries  
 console.log('keys : ',Object.keys(fourthUser)); // 1차 배열로 반환
 console.log('values : ',Object.values(fourthUser)); // 1차 배열로 반환
 console.log('keys/values : ',Object.entries(fourthUser)); // 2차배열로 반환
