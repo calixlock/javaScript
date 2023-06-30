@@ -55,10 +55,12 @@ console.log(a1.wheels);
 // 생성자 함수 prototype 선언 방식
 
 // method1
-bmw2.prototype.year = 1994;
-bmw2.prototype.ride = function () {
-    console.log("ride!");
-};
+
+// bmw2.prototype.year = 1994;
+// bmw2.prototype.ride = function () {
+//     console.log("ride!");
+// };
+
 // method2
 bmw2.prototype={
     constructor: bmw2,
