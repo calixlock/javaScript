@@ -1,3 +1,5 @@
+// promise chaining
+
 const f1 = ()=>{
     return new Promise((res,rej)=>{
         setTimeout(()=>{
@@ -20,7 +22,7 @@ const f3 = ()=>{
         },1500);
     });
 };
-console.log('test2 promise chain 시작')
+console.log('test2 promise chaining 시작')
 f1()
 .then((res) => f2(res))
 .then((res) => f3(res))
