@@ -14,48 +14,74 @@
 
 <body>
     <div><span id="order">1</span>번째 참가자</div>
-    <div>제시어 : <span id="word">
-            <input type="text" name="" id="">
-            <button>입력1</button>
-            <!-- <button class="btn">입력2</button> -->
-            <!-- <button class="btn">입력3</button> -->
-        </span>
-    </div>
+    <div>제시어 : <span id="word"></span></div>
+    <input type="text" name="" id="input">
+    <button>입력1</button>
+    <!-- <button class="hello">1</button> -->
+    <!-- <button class="hello">2</button> -->
 
 
     <script>
         // js 부분
-        const number = parseInt(prompt(" 몇 명이 참가하나요?"), 10); // parseInt(String, 진법)
-        let word;
-        // alert(`number : ${number}, type : ${typeof number}`);
-        // const yesNo = confirm("alright?");
+        // const number = parseInt(prompt(" 몇 명이 참가하나요?"), 10); // parseInt(String, 진법)
+        const number = Number(prompt('몇 명이 참여하나요?'));
+        const $order = document.querySelector('#order');
+        const $button = document.querySelector('button');
+        const $input = document.querySelector('#input');
+        const $word = document.querySelector('#word');
 
-        // const $btn = document.querySelector('button');
-        // console.log($btn)
-        // const $$btn = document.querySelectorAll('button');
-        // console.log($$btn);
-        // console.log($$btn[0]);
-        // const $$btn23 = document.querySelector('.btn');
-        // console.log($$btn23);
-        // const order = document.querySelector('#order')
-        // console.log(order);
-        // const span = document.querySelector('#word')
-        // console.log(span);
+        let word; // 제시어
+        let newWord; // 새로 입력한 값
+
+        // function onClickButton() {
         const onClickButton = () => {
-            if(!word)
+            if (!word) { // 비어있나?  > 비어있다
+
+                word = newWord;
+                $word.textContent = word;
+                
+                const order = Number($order.textContent); // 현재순서
+
+                // if (order +1 > number) {
+                if (order === number) {
+                    $order.textContent = 1;
+                } else {
+                    $order.textContent = order + 1;
+                }
+                $input.value = '';
+                $input.fucos();
+
+            } else {//비어있지 않다
+                if (word[word.length - 1] === newWord[0]) {
+                    // 글자가 같은가
+                    word = newWord;
+                    $word.textContent = word;
+                    const order = Number($order.textContent); // 현재순서
+
+                    if (order +1 > number) {
+                        $order.textContent = 1;
+                    } else {
+                        $order.textContent = order + 1;
+                    }
+                    $input.value = '';
+                    $input.fucos();
+
+                } else {
+                    alert('글자가 다르다')
+                }
+
+            }
             console.log('버튼 클릭');
-            // return console.log('버튼 클릭');
         };
-        function onClick() {
-            console.log('btn click');
+        const onInput = (e) => {
+            newWord = e.target.value;
+            console.log('글자입력', newWord);
         }
-        // addEventListener(String,funcName) // funcName() >> undefined >> 동작x
-        document.querySelector('input').addEventListener('input', function (event) {
-            console.log('글자 입력중', event.target.value); // event.target.value 사용자 입력값
-        })
-        // document.querySelector('button').addEventListener('click', onclick);
-        document.querySelector('button').addEventListener('click', onClickButton);
-        
+
+        // 기능 실행
+        $button.addEventListener('click', onClickButton);
+        $input.addEventListener('input', onInput);
+
 
     </script>
 </body>
