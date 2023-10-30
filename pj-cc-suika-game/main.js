@@ -1,4 +1,4 @@
-import { Bodies, Body, Engine, Render, Runner, World } from "matter-js";
+import { Bodies, Body, Engine, Events, Render, Runner, World } from "matter-js";
 import { FRUITS_BASE } from "./fruits";
 
 // engine / render
@@ -7,7 +7,7 @@ const render = Render.create({
   engine,
   element: document.body,
   options: {
-    wireframes: 1, // 그래픽OFF & frameOn
+    wireframes: 0, // 그래픽OFF & frameOn
     background: "#f7f4c8",
     width: 620,
     height: 850,
@@ -94,4 +94,32 @@ window.onkeydown = (event) => {
   }
 };
 
+// collision decision > matterJs 이용
+Events.on(engine, "collisionStart", (event) => {
+  event.pairs.forEach((collision) => {
+    if (collision.bodyA.index === collision.bodyB.index) {
+      const index = collision.bodyA.index;
+
+      World.remove(world, [collision.bodyA, collision.bodyB]);
+      // 마지막 과일인 경우 생성 x
+      if (index === FRUITS_BASE.length - 1) return;
+      // 같은 과일 충돌시 합성 과일 생성
+      const newFruit = FRUITS_BASE[index + 1];
+
+      const newBody = Bodies.circle(
+        collision.collision.supports[0].x,
+        collision.collision.supports[0].y,
+        newFruit.radius,
+        {
+          index: index + 1,
+          render: {
+            sprite: { texture: `${newFruit.name}.png` },
+          },
+        }
+      );
+
+      World.add(world, newBody);
+    }
+  });
+});
 addFruit();
