@@ -34,6 +34,7 @@ const background = Bodies.rectangle(310, 820, 620, 60, {
   },
 });
 const topLine = Bodies.rectangle(310, 150, 620, 2, {
+  name: "topLine",
   isSensor: 1, // 감지
   isStatic: 1,
   render: {
@@ -119,8 +120,15 @@ Events.on(engine, "collisionStart", (event) => {
           },
         }
       );
-
       World.add(world, newBody);
+    }
+
+    if (
+      !disableAction &&
+      (collision.bodyA.name === "topLine" || collision,
+      bodyB.name === "topLine")
+    ) {
+      alert("GameOver");
     }
   });
 });
