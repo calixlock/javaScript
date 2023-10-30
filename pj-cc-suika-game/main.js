@@ -51,6 +51,7 @@ Runner.run(engine);
 let currentBody = null;
 let currentFruit = null;
 let disableAction = 0;
+let interval = null;
 
 //----------------------------------------------------------------
 function addFruit() {
@@ -73,18 +74,26 @@ window.onkeydown = (event) => {
   if (disableAction) return;
   switch (event.code) {
     case "ArrowLeft":
-      if (currentBody.position.x - currentFruit.radius > 30)
-        Body.setPosition(currentBody, {
-          x: currentBody.position.x - 10,
-          y: currentBody.position.y,
-        });
+      if (interval) return;
+
+      interval = setInterval(() => {
+        if (currentBody.position.x - currentFruit.radius > 30)
+          Body.setPosition(currentBody, {
+            x: currentBody.position.x - 5,
+            y: currentBody.position.y,
+          });
+      }, 5);
       break;
     case "ArrowRight":
-      if (currentBody.position.x - currentFruit.radius < 590)
-        Body.setPosition(currentBody, {
-          x: currentBody.position.x + 10,
-          y: currentBody.position.y,
-        });
+      if (interval) return;
+
+      interval = setInterval(() => {
+        if (currentBody.position.x + currentFruit.radius < 590)
+          Body.setPosition(currentBody, {
+            x: currentBody.position.x + 5,
+            y: currentBody.position.y,
+          });
+      }, 2);
       break;
     case "ArrowDown":
       disableAction = 1;
@@ -94,6 +103,15 @@ window.onkeydown = (event) => {
         disableAction = 0;
       }, 1000); //1s delay
       break;
+  }
+};
+// 인터벌 효과 제어
+window.onkeyup = (event) => {
+  switch (event.code) {
+    case "ArrowLeft":
+    case "ArrowRight":
+      clearInterval(interval);
+      interval = null;
   }
 };
 
