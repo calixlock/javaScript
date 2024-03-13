@@ -7,7 +7,7 @@
   <title>미정</title>
   <style></style>
   <script>
-    document.write('head_script : 0');
+    document.write('head_script : --');
   </script>
 
 </head>
@@ -15,7 +15,13 @@
 <body>
   <div>--- 체크 ---</div>
   <script>
-    document.write('body_script : ');
+    document.write('body_script : --');
+    // prompt 입력받기 = input
+    let var1 = prompt("입력해주세요.");
+    var var2 = prompt("입력해주세요."); // string
+    var var3 = Number(var1) + Number(var2); // number로 string>integer로 치환
+    document.write("<br />", "type_var1 : ", typeof var1, "<br />"); // string
+    document.write("type_var3 : ", typeof var3, " | var3 : ", var3); // string
   </script>
 </body>
 
