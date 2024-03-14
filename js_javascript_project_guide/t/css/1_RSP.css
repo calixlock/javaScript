@@ -2,3 +2,10 @@ button {
   height: 100px;
   width: 100px;
 }
+img {
+  height: 70px;
+  width: 70px;
+}
+img.scissors {
+  transform: rotate(-90deg);
+}
