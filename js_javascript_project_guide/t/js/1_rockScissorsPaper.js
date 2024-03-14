@@ -15,7 +15,7 @@ if (userInput !== "rock" && userInput !== "scissors" && userInput !== "paper") {
     comInput = "paper";
   }
 
-  // 가위바위보 결과
+  // 가위바위보 paper결과
   function RSP(user, com) {
     let resultList = ["이겼다", "비겼다", "졌다"];
     if (user === "rock") {
