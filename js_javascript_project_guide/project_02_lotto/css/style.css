@@ -1,4 +1,5 @@
 body {
+  background-color: #01040a;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -10,13 +11,13 @@ div.ball {
   justify-content: center;
   /* 수직 정렬 */
   align-items: center;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   background-color: #264654;
   color: #e8c268;
   border-radius: 50%;
   font-size: 30px;
-  margin: 5px;
+  margin: 20px;
 
   /* text 정렬 */
   /* text-align: center; */
