@@ -1,6 +1,21 @@
+body {
+  background-color: #01040a;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 button {
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
   height: 100px;
   width: 100px;
+  border-radius: 30%;
+}
+button.refresh {
+  height: 50px;
+  width: 50px;
 }
 img {
   height: 70px;
@@ -8,4 +23,8 @@ img {
 }
 img.scissors {
   transform: rotate(-90deg);
+}
+img.refresh {
+  height: 30px;
+  width: 30px;
 }
