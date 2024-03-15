@@ -1,20 +1,26 @@
-// 서로다른 숫자 6개 뽑기
-let n1 = 0;
-let n2 = 0;
-let n3 = 0;
-let n4 = 0;
-let n5 = 0;
-let n6 = 0;
-let count = 0;
-do {
-  n1 = Math.floor(Math.random() * 45) + 1;
-  n2 = Math.floor(Math.random() * 45) + 1;
-  n3 = Math.floor(Math.random() * 45) + 1;
-  n4 = Math.floor(Math.random() * 45) + 1;
-  n5 = Math.floor(Math.random() * 45) + 1;
-  n6 = Math.floor(Math.random() * 45) + 1;
-} while (n1 === n2 || n1 === n3 || n1 === n4 || n1 === n5 || n1 === n6);
-{
-  count++;
+// 변수 및 리스트 초기화
+let startNum = 1;
+let lastNum = 45;
+let idxBall = 0;
+let ballCount = 6;
+
+let numList = [];
+let lottoList = [];
+// lotto list 작성
+for (let i = startNum; i <= lastNum; i++) {
+  numList.push(i);
 }
-console.log(n1, n2, n3, n4, n5, n6, count);
+// lotto 6개 추출
+for (let i = 1; i <= ballCount; i++) {
+  idxBall = Math.floor(Math.random() * numList.length);
+  lottoList.push(numList[idxBall]);
+  numList.splice(idxBall, 1);
+}
+// lotto 숫자 정렬
+lottoList.sort((a, b) => a - b); // 오름차순
+// lottoList.sort((a, b) => b - a); // 역순
+// html 반출
+for (let i = 0; i < lottoList.length; i++) {
+  document.write('<div class="ball">' + lottoList[i] + "</div>");
+}
+console.log(numList);
