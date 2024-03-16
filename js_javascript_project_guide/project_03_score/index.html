@@ -4,12 +4,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>score</title>
+  <!-- css -->
   <link rel="stylesheet" href="css/style.css">
+  <!-- javascript -->
+  <script src="js/script.js"></script>
+
 </head>
 
 <body>
-  <script src="js/script.js"></script>
+  <div class="div-scoreBorad">
+    <div class=" div-scoreBorad inner">
+      <div class="div-shots-left">
+        <span>남은 슛 </span>
+        <span id="shots-left">00</span>
+      </div>
+    </div>
+    <div class="div-score">
+      <div class="div-score-name">COM</div>
+      <div id="computer-score" class="div-score-number">0</div>
+    </div>
+    <div class="div-score">
+      <div class="div-score-name">USER</div>
+      <div id="user-score" class="div-score-number">0</div>
+    </div>
+    <div id="text">COM START!</div>
+  </div>
+
+
+
 </body>
 
 </html>
