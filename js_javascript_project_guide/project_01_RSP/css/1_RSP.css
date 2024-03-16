@@ -32,8 +32,9 @@ img.refresh {
   height: 30px;
   width: 30px;
 }
-button,
-div div {
+button {
   background-color: wheat;
-  color: wheat;
+}
+div div div {
+  color: white;
 }
