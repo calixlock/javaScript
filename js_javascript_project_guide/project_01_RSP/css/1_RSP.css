@@ -13,9 +13,13 @@ button {
   width: 100px;
   border-radius: 30%;
 }
+button:hover {
+  background-color: lightslategrey;
+}
 button.refresh {
   height: 50px;
   width: 50px;
+  /* background-color: white; */
 }
 img {
   height: 70px;
@@ -27,4 +31,9 @@ img.scissors {
 img.refresh {
   height: 30px;
   width: 30px;
+}
+button,
+div div {
+  background-color: wheat;
+  color: wheat;
 }
