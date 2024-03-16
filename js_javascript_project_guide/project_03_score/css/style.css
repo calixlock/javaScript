@@ -55,6 +55,5 @@ body {
   padding-top: 5px;
 }
 #text {
-  height: 30px;
-  /* text-align: center; */
+  line-height: 30px;
 }
