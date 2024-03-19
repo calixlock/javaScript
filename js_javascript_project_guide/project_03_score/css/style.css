@@ -59,8 +59,10 @@ body {
   line-height: 30px;
 }
 button {
-  padding: 5px 10px;
+  padding: 3px 5px;
   /* font-size: 15px; */
+  margin: 0 5px;
+  width: 55px;
 }
 .div-panel {
   width: 120px;
@@ -83,4 +85,5 @@ button {
 }
 .btn {
   display: flex;
+  justify-content: center;
 }
