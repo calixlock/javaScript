@@ -30,9 +30,10 @@ body {
   margin: 5px 0;
 }
 #shots-left {
+  border-radius: 10px;
   background-color: #b07e45;
   /* margin: 0 10px; */
-  padding: 0 10px;
+  padding: 0 5px;
   font-size: 15px;
   color: black;
   font-weight: 600;
@@ -62,10 +63,11 @@ button {
   /* font-size: 15px; */
 }
 .div-panel {
+  width: 120px;
   background-color: #c2af8c;
   /* border: 1px solid red; */
   display: inline-block;
-  margin: 10px;
+  margin: 20px;
   padding: 10px;
 }
 
@@ -73,4 +75,12 @@ button {
   border: 1px solid red;
   /* width: 400px; */
   background-color: #b07e45;
+  padding: 2px;
+  /* margin: 2px; */
+}
+.div-control-name {
+  font-size: 20px;
+}
+.btn {
+  display: flex;
 }
