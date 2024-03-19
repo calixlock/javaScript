@@ -48,3 +48,36 @@
   </script>
 </body>
 ```
+
+## cf.
+
+> JavaScript 스크립트가 `<head>` 태그 안에 위치할 때 페이지의 내용이 먼저 출력되고 스크립트가 실행되는 현상을 해결하는 방법은 몇 가지 방법
+
+### 1. `defer` 속성 부여
+
+- 스크립트가 HTML 문서 파싱 후에 실행되도록 합니다.
+
+```js
+<script src="your-script.js" defer></script>
+```
+
+### 2. `async ` 속성 부여
+
+- 스크립트가 다운로드 되는 동안에도 페이지 파싱이 계속되고,
+  스크립트 다운로드가 완료되면 즉시 실행
+
+```js
+<script src="your-script.js" async></script>
+```
+
+### 2. 스크립트를 body의 최하단 배치
+
+- HTML 문서 파싱이 스크립트를 만나기 전에 완료되므로 스크립트가 먼저 실행
+
+```js
+<body>
+    <!-- 페이지 내용 -->
+
+    <script src="your-script.js"></script>
+</body>
+```
