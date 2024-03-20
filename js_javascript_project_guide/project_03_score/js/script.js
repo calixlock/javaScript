@@ -1,15 +1,18 @@
-// let userSoreElem = document.querySelector("#user-score");
-// userSoreElem.innerHTML = "<ch>zero</ch>";
-// let userScoreElem = document.getElementById("user-score");
-// console.log(userScoreElem);
+let turn = true;
+
 let comScore = 0;
 let comScoreElem = document.querySelector("#com-score");
 
 let onComShoot = () => {
   let textElem = document.querySelector("#text");
+  //
+  if (!isComTurn) {
+    textElem.innerHTML = "USER 차례입니다!";
+
+    return;
+  }
   //슛타입 50%확률로 결정
   let shootType = Math.random() < 0.5 ? 2 : 3;
-
   if (shootType === 2) {
     // 2점슛 성공확률 50%
     if (Math.random() < 0.5) {
@@ -28,12 +31,22 @@ let onComShoot = () => {
     }
   }
   comScoreElem.innerHTML = comScore;
+  // turn 체크 전환
+  isComTurn = !isComTurn;
 };
 
 let userScore = 0;
 let userScoreElem = document.querySelector("#user-score");
+
 let onUserShoot = (shootType) => {
   let textElem = document.querySelector("#text");
+
+  if (!isComTurn) {
+    textElem.innerHTML = "USER 차례입니다!";
+
+    return;
+  }
+
   if (shootType === 2) {
     if (Math.random() < 0.5) {
       textElem.innerHTML = "USER 2점슛을 성공!";
