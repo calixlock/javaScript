@@ -29,3 +29,26 @@ let onComShoot = () => {
   }
   comScoreElem.innerHTML = comScore;
 };
+
+let userScore = 0;
+let userScoreElem = document.querySelector("#user-score");
+let onUserShoot = (shootType) => {
+  let textElem = document.querySelector("#text");
+  if (shootType === 2) {
+    if (Math.random() < 0.5) {
+      textElem.innerHTML = "USER 2점슛을 성공!";
+      userScore += 2;
+    } else {
+      textElem.innerHTML = "USER 2점슛을 실패!";
+    }
+  } else {
+    // 3점 슛 성공확률 33%
+    if (Math.random() < 0.33) {
+      textElem.innerHTML = "USER 3점슛을 성공!";
+      userScore += 3;
+    } else {
+      textElem.innerHTML = "USER 3점슛을 실패!";
+    }
+  }
+  userScoreElem.innerHTML = userScore;
+};
