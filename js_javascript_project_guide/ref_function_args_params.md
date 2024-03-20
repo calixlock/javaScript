@@ -19,6 +19,42 @@ function plusFounction(a, b) {
 plusFounction(1, 2);
 ```
 
+---
+
+### 🔆 function 표현
+
+```js
+// 기명함수 방식
+let greet = function sayHello(params) {
+  console.log("Hello!"+str(params));
+};
+// 익명함수 방식
+let greet = function (params) {
+  console.log("Hello!"str(params));
+};
+// 사용
+let result = greet("AMJ"));
+
+```
+
+```js
+// 화살표 함수정의
+let greet = (params) => {
+  console.log("Hello!" + str(params));
+};
+```
+
+```js
+// return 생략
+let multiply = (x, y) => x * y;
+
+let multiply2 = function (x, y) {
+  return x * y;
+};
+```
+
+---
+
 #### 참고
 
 - https://velog.io/@colki/JS-parameter-%EC%99%80-argument-%EC%9D%98-%EC%B0%A8%EC%9D%B4-%EC%9D%B8%EC%88%98-%EC%9D%B8%EC%9E%90
