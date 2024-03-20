@@ -25,6 +25,7 @@ body {
   border: 3px solid #544c37;
   margin: auto;
   box-sizing: border-box;
+  padding: 0;
 }
 .div-shots-left {
   margin: 5px 0;
@@ -74,7 +75,7 @@ button {
 }
 
 .div-control-panel {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   /* width: 400px; */
   background-color: #b07e45;
   padding: 2px;
