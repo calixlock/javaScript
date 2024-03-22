@@ -1,4 +1,4 @@
-let turn = true;
+let isComTurn = true;
 
 let comScore = 0;
 let comScoreElem = document.querySelector("#com-score");
