@@ -4,12 +4,16 @@ let isUserTurn = false;
 let comScore = 0;
 let comScoreElem = document.querySelector("#com-score");
 
+let turnCheck = () => {
+  isComTurn = !isComTurn;
+  isUserTurn = !isUserTurn;
+};
+
 let onComShoot = () => {
   let textElem = document.querySelector("#text");
   //
   if (!isComTurn) {
     textElem.innerHTML = "USER 차례입니다!";
-
     return;
   }
   //슛타입 50%확률로 결정
@@ -33,8 +37,7 @@ let onComShoot = () => {
   }
   comScoreElem.innerHTML = comScore;
   // turn 체크 전환
-  isComTurn = !isComTurn;
-  isUserTurn = !isUserTurn;
+  turnCheck();
 };
 
 let userScore = 0;
@@ -66,4 +69,5 @@ let onUserShoot = (shootType) => {
     }
   }
   userScoreElem.innerHTML = userScore;
+  turnCheck();
 };
