@@ -3,7 +3,7 @@ let isComTurn = true;
 let comScore = 0;
 let comScoreElem = document.querySelector("#com-score");
 
-let turnCheck = () => {
+let turnChange = () => {
   isComTurn = !isComTurn;
   console.log(`comTurn : ${isComTurn}`);
 };
@@ -36,7 +36,7 @@ let onComShoot = () => {
   }
   comScoreElem.innerHTML = comScore;
   // turn 체크 전환
-  turnCheck();
+  turnChange();
 };
 
 let userScore = 0;
@@ -68,5 +68,5 @@ let onUserShoot = (shootType) => {
     }
   }
   userScoreElem.innerHTML = userScore;
-  turnCheck();
+  turnChange();
 };
