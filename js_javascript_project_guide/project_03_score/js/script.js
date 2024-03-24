@@ -1,12 +1,11 @@
 let isComTurn = true;
-let isUserTurn = false;
 
 let comScore = 0;
 let comScoreElem = document.querySelector("#com-score");
 
 let turnCheck = () => {
   isComTurn = !isComTurn;
-  isUserTurn = !isUserTurn;
+  console.log(`comTurn : ${isComTurn}`);
 };
 
 let onComShoot = () => {
@@ -46,7 +45,7 @@ let userScoreElem = document.querySelector("#user-score");
 let onUserShoot = (shootType) => {
   let textElem = document.querySelector("#text");
 
-  if (isUserTurn) {
+  if (isComTurn) {
     textElem.innerHTML = "COM 차례입니다!";
 
     return;
