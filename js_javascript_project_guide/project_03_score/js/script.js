@@ -88,5 +88,3 @@ let onUserShoot = (shootType) => {
   turnChange();
   btnLock(isComTurn);
 };
-
-//-----shot left
