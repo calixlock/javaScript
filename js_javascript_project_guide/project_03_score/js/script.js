@@ -35,7 +35,7 @@ let turnDisplay = (shotLeft) => {
 // -------------------initial settings --------------------------------
 let isComTurn = true;
 btnLock(isComTurn);
-let shotLeft = 1;
+let shotLeft = 3;
 turnDisplay(shotLeft);
 // ----element -------------------------------------------------------
 let textElem = document.querySelector("#text");
