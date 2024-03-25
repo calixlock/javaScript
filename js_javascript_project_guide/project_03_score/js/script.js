@@ -1,7 +1,3 @@
-//-------------------------com part------------------------
-let isComTurn = true;
-let comScore = 0;
-let comScoreElem = document.querySelector("#com-score");
 //-------------------------btn activation -----------------
 let btnLock = (isComTurn) => {
   let comBtns = document.querySelectorAll(".btn-com");
@@ -16,11 +12,18 @@ let btnLock = (isComTurn) => {
     // userBtns[i].style.display = "none";
   }
 };
-//-------------------------trun change function------------
+// -------------------initial settings --------------------------------
+let isComTurn = true;
+btnLock(isComTurn);
+
+//-------------------------turn change function------------
 let turnChange = () => {
   isComTurn = !isComTurn;
   console.log(`comTurn : ${isComTurn}`);
 };
+//-------------------------com part------------------------
+let comScore = 0;
+let comScoreElem = document.querySelector("#com-score");
 
 let onComShoot = () => {
   let textElem = document.querySelector("#text");
@@ -86,6 +89,4 @@ let onUserShoot = (shootType) => {
   btnLock(isComTurn);
 };
 
-//------------초기 셋팅------------
-btnLock(isComTurn);
-//------------------------
+//-----shot left
