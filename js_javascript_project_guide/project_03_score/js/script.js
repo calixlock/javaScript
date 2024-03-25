@@ -1,8 +1,22 @@
+//-------------------------com part------------------------
 let isComTurn = true;
-
 let comScore = 0;
 let comScoreElem = document.querySelector("#com-score");
-
+//-------------------------btn activation -----------------
+let btnLock = (isComTurn) => {
+  let comBtns = document.querySelectorAll(".btn-com");
+  for (let i = 0; i < comBtns.length; i++) {
+    comBtns[i].disabled = !isComTurn;
+  }
+  let userBtns = document.querySelectorAll(".btn-user");
+  for (let i = 0; i < userBtns.length; i++) {
+    // 버튼 비활성화
+    userBtns[i].disabled = isComTurn;
+    // 버튼 없애기
+    // userBtns[i].style.display = "none";
+  }
+};
+//-------------------------trun change function------------
 let turnChange = () => {
   isComTurn = !isComTurn;
   console.log(`comTurn : ${isComTurn}`);
@@ -37,8 +51,9 @@ let onComShoot = () => {
   comScoreElem.innerHTML = comScore;
   // turn 체크 전환
   turnChange();
+  btnLock(isComTurn);
 };
-
+//-------------------------user part------------------------
 let userScore = 0;
 let userScoreElem = document.querySelector("#user-score");
 
@@ -47,7 +62,6 @@ let onUserShoot = (shootType) => {
 
   if (isComTurn) {
     textElem.innerHTML = "COM 차례입니다!";
-
     return;
   }
 
@@ -69,4 +83,9 @@ let onUserShoot = (shootType) => {
   }
   userScoreElem.innerHTML = userScore;
   turnChange();
+  btnLock(isComTurn);
 };
+
+//------------초기 셋팅------------
+btnLock(isComTurn);
+//------------------------
