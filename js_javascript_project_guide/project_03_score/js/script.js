@@ -12,10 +12,34 @@ let btnLock = (isComTurn) => {
     // userBtns[i].style.display = "none";
   }
 };
+//------- turn display & result display
+let turnDisplay = (shotLeft) => {
+  let shotLeftElem = document.querySelector("#shots-left");
+  shotLeftElem.innerHTML = shotLeft;
+  if (shotLeft === 0) {
+    if (userScore > comScore) {
+      textElem.innerHTML = "USER가 승리하였습니다";
+    } else if (userScore < comScore) {
+      textElem.innerHTML = "COM이 승리하였습니다";
+    } else {
+      textElem.innerHTML = "비겼습니다.";
+    }
+    // 버튼 잠금
+
+    for (let i = 0; i < comBtns.length; i++) {
+      comBtns[i].disabled = true;
+    }
+  }
+};
+
 // -------------------initial settings --------------------------------
 let isComTurn = true;
 btnLock(isComTurn);
-
+let shotLeft = 1;
+turnDisplay(shotLeft);
+// ----element -------------------------------------------------------
+let textElem = document.querySelector("#text");
+let comBtns = document.querySelectorAll(".btn-com");
 //-------------------------turn change function------------
 let turnChange = () => {
   isComTurn = !isComTurn;
@@ -26,7 +50,6 @@ let comScore = 0;
 let comScoreElem = document.querySelector("#com-score");
 
 let onComShoot = () => {
-  let textElem = document.querySelector("#text");
   //
   if (!isComTurn) {
     textElem.innerHTML = "USER 차례입니다!";
@@ -52,17 +75,16 @@ let onComShoot = () => {
     }
   }
   comScoreElem.innerHTML = comScore;
-  // turn 체크 전환
+  // 턴 전환
   turnChange();
   btnLock(isComTurn);
+  turnDisplay(shotLeft);
 };
 //-------------------------user part------------------------
 let userScore = 0;
 let userScoreElem = document.querySelector("#user-score");
 
 let onUserShoot = (shootType) => {
-  let textElem = document.querySelector("#text");
-
   if (isComTurn) {
     textElem.innerHTML = "COM 차례입니다!";
     return;
@@ -85,6 +107,9 @@ let onUserShoot = (shootType) => {
     }
   }
   userScoreElem.innerHTML = userScore;
+  // 턴 전환
   turnChange();
   btnLock(isComTurn);
+  shotLeft--;
+  turnDisplay(shotLeft);
 };
