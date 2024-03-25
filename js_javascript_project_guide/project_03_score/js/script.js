@@ -1,15 +1,19 @@
 //-------------------------btn activation -----------------
-let btnLock = (isComTurn) => {
+let comBtnLock = (flag) => {
   let comBtns = document.querySelectorAll(".btn-com");
   for (let i = 0; i < comBtns.length; i++) {
-    comBtns[i].disabled = !isComTurn;
+    comBtns[i].disabled = flag;
   }
-  let userBtns = document.querySelectorAll(".btn-user");
-  for (let i = 0; i < userBtns.length; i++) {
-    // 버튼 비활성화
-    userBtns[i].disabled = isComTurn;
-    // 버튼 없애기
-    // userBtns[i].style.display = "none";
+};
+let userBtnLock = (flag) => {
+  {
+    let userBtns = document.querySelectorAll(".btn-user");
+    for (let i = 0; i < userBtns.length; i++) {
+      // 버튼 비활성화
+      userBtns[i].disabled = flag;
+      // 버튼 없애기
+      // userBtns[i].style.display = "none";
+    }
   }
 };
 //------- turn display & result display
@@ -18,11 +22,11 @@ let turnDisplay = (shotLeft) => {
   shotLeftElem.innerHTML = shotLeft;
   if (shotLeft === 0) {
     if (userScore > comScore) {
-      textElem.innerHTML = "USER가 승리하였습니다";
+      showText("USER가 승리하였습니다");
     } else if (userScore < comScore) {
-      textElem.innerHTML = "COM이 승리하였습니다";
+      showText("COM이 승리하였습니다");
     } else {
-      textElem.innerHTML = "비겼습니다.";
+      showText("비겼습니다");
     }
     // 버튼 잠금
 
@@ -34,25 +38,40 @@ let turnDisplay = (shotLeft) => {
 
 // -------------------initial settings --------------------------------
 let isComTurn = true;
-btnLock(isComTurn);
+userBtnLock(isComTurn);
 let shotLeft = 3;
 turnDisplay(shotLeft);
+let comScore = 0;
+let userScore = 0;
+
+// ---- showText ----
+let showText = (text) => {
+  let textElem = document.querySelector("#text");
+  textElem.innerHTML = text;
+};
 // ----element -------------------------------------------------------
-let textElem = document.querySelector("#text");
 let comBtns = document.querySelectorAll(".btn-com");
 //-------------------------turn change function------------
 let turnChange = () => {
   isComTurn = !isComTurn;
   console.log(`comTurn : ${isComTurn}`);
 };
+//
+let updateComScore = (score) => {
+  comScore += score;
+  let comScoreElem = document.querySelector("#com-score");
+  comScoreElem.innerHTML = comScore;
+};
+let updateUserScore = (score) => {
+  userScore += score;
+  let userScoreElem = document.querySelector("#user-score");
+  userScoreElem.innerHTML = userScore;
+};
 //-------------------------com part------------------------
-let comScore = 0;
-let comScoreElem = document.querySelector("#com-score");
 
 let onComShoot = () => {
-  //
   if (!isComTurn) {
-    textElem.innerHTML = "USER 차례입니다!";
+    showText("USER 차례입니다!");
     return;
   }
   //슛타입 50%확률로 결정
@@ -60,56 +79,58 @@ let onComShoot = () => {
   if (shootType === 2) {
     // 2점슛 성공확률 50%
     if (Math.random() < 0.5) {
-      textElem.innerHTML = "COM 2점슛을 성공!";
-      comScore += 2;
+      showText("COM 2점슛을 성공!");
+      updateComScore(2);
     } else {
-      textElem.innerHTML = "COM 2점슛을 실패!";
+      showText("COM 2점슛을 실패!");
     }
   } else {
     // 3점 슛 성공확률 33%
     if (Math.random() < 0.33) {
-      textElem.innerHTML = "COM 3점슛을 성공!";
-      comScore += 3;
+      showText("COM 3점슛을 성공!");
+      updateComScore(3);
     } else {
-      textElem.innerHTML = "COM 3점슛을 실패!";
+      showText("COM 3점슛을 실패!");
     }
   }
-  comScoreElem.innerHTML = comScore;
+
   // 턴 전환
   turnChange();
-  btnLock(isComTurn);
+  // btnLock(isComTurn);
+  comBtnLock(!isComTurn);
+  userBtnLock(isComTurn);
   turnDisplay(shotLeft);
 };
 //-------------------------user part------------------------
-let userScore = 0;
-let userScoreElem = document.querySelector("#user-score");
 
 let onUserShoot = (shootType) => {
   if (isComTurn) {
-    textElem.innerHTML = "COM 차례입니다!";
+    showText("COM 차례입니다!");
     return;
   }
 
   if (shootType === 2) {
     if (Math.random() < 0.5) {
-      textElem.innerHTML = "USER 2점슛을 성공!";
-      userScore += 2;
+      showText("USER 2점슛을 성공!");
+      updateUserScore(2);
     } else {
-      textElem.innerHTML = "USER 2점슛을 실패!";
+      showText("USER 2점슛을 실패!");
     }
   } else {
     // 3점 슛 성공확률 33%
     if (Math.random() < 0.33) {
-      textElem.innerHTML = "USER 3점슛을 성공!";
-      userScore += 3;
+      showText("USER 3점슛을 성공!");
+      updateUserScore(3);
     } else {
-      textElem.innerHTML = "USER 3점슛을 실패!";
+      showText("USER 3점슛을 실패!");
     }
   }
-  userScoreElem.innerHTML = userScore;
+
   // 턴 전환
   turnChange();
-  btnLock(isComTurn);
+  // btnLock(isComTurn);
+  comBtnLock(!isComTurn);
+  userBtnLock(isComTurn);
   shotLeft--;
   turnDisplay(shotLeft);
 };
