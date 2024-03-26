@@ -66,6 +66,8 @@ let comBtns = document.querySelectorAll(".btn-com");
 let turnChange = () => {
   game.isComTurn = !game.isComTurn;
   // console.log(`comTurn : ${game.isComTurn}`);
+  comBtnLock(!game.isComTurn);
+  userBtnLock(game.isComTurn);
 };
 //
 let updateComScore = (score) => {
@@ -99,8 +101,7 @@ let onComShoot = () => {
   // 턴 전환
   turnChange();
   // btnLock(isComTurn);
-  comBtnLock(!game.isComTurn);
-  userBtnLock(game.isComTurn);
+
   turnDisplay(game.shotLeft);
 };
 //-------------------------user part------------------------
@@ -121,8 +122,6 @@ let onUserShoot = (shootType) => {
   // 턴 전환
   turnChange();
   // btnLock(isComTurn);
-  comBtnLock(!game.isComTurn);
-  userBtnLock(game.isComTurn);
   game.shotLeft--;
   turnDisplay(game.shotLeft);
 };
