@@ -37,18 +37,16 @@ let turnDisplay = (shotLeft) => {
 };
 
 // -------------------initial settings --------------------------------
-// let pointScore2 = 0.5;
-// let pointScore3 = 0.33;
 // object
 let com = {
   score: 0,
-  pointScore2: 0.5,
-  pointScore3: 0.33,
+  point_2: 0.5,
+  point_3: 0.33,
 };
 let user = {
   score: 0,
-  pointScore2: 0.5,
-  pointScore3: 0.33,
+  point_2: 0.5,
+  point_3: 0.33,
 };
 let game = {
   isComTurn: true,
@@ -56,6 +54,7 @@ let game = {
 };
 userBtnLock(game.isComTurn);
 turnDisplay(game.shotLeft);
+
 // ---- showText ----
 let showText = (text) => {
   let textElem = document.querySelector("#text");
@@ -89,22 +88,12 @@ let onComShoot = () => {
   }
   //슛타입 50%확률로 결정
   let shootType = Math.random() < 0.5 ? 2 : 3;
-  if (shootType === 2) {
-    // 2점슛 성공확률 50%
-    if (Math.random() < com.pointScore2) {
-      showText("COM 2점슛을 성공!");
-      updateComScore(2);
-    } else {
-      showText("COM 2점슛을 실패!");
-    }
+
+  if (Math.random() < com["point_" + shootType]) {
+    showText("COM " + shootType + "점슛을 성공!");
+    updateComScore(shootType);
   } else {
-    // 3점 슛 성공확률 33%
-    if (Math.random() < com.pointScore3) {
-      showText("COM 3점슛을 성공!");
-      updateComScore(3);
-    } else {
-      showText("COM 3점슛을 실패!");
-    }
+    showText("COM " + shootType + "점슛을 실패!");
   }
 
   // 턴 전환
@@ -122,21 +111,11 @@ let onUserShoot = (shootType) => {
     return;
   }
 
-  if (shootType === 2) {
-    if (Math.random() < 0.5) {
-      showText("USER 2점슛을 성공!");
-      updateUserScore(2);
-    } else {
-      showText("USER 2점슛을 실패!");
-    }
+  if (Math.random() < user["point_" + shootType]) {
+    showText("USER " + shootType + "점슛을 성공!");
+    updateComScore(shootType);
   } else {
-    // 3점 슛 성공확률 33%
-    if (Math.random() < 0.33) {
-      showText("USER 3점슛을 성공!");
-      updateUserScore(3);
-    } else {
-      showText("USER 3점슛을 실패!");
-    }
+    showText("USER " + shootType + "점슛을 실패!");
   }
 
   // 턴 전환
@@ -151,16 +130,16 @@ let onUserShoot = (shootType) => {
 let updateAi = () => {
   let diff = user.score - com.score;
   if (diff >= 10) {
-    pointScore2 = 0.6;
+    point_2 = 0.6;
     pointScore3 = 0.38;
   } else if (diff >= 6) {
-    pointScore2 = 0.4;
+    point_2 = 0.4;
     pointScore3 = 0.33;
   } else if (diff <= -10) {
-    pointScore2 = 0.3;
+    point_2 = 0.3;
     pointScore3 = 0.28;
   } else if (diff <= -6) {
-    pointScore2 = 0.4;
+    point_2 = 0.4;
     pointScore3 = 0.28;
   }
 };
