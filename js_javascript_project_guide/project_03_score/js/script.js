@@ -21,9 +21,9 @@ let turnDisplay = (shotLeft) => {
   let shotLeftElem = document.querySelector("#shots-left");
   shotLeftElem.innerHTML = shotLeft;
   if (shotLeft === 0) {
-    if (userScore > comScore) {
+    if (user.score > com.score) {
       showText("USER가 승리하였습니다");
-    } else if (userScore < comScore) {
+    } else if (user.score < com.score) {
       showText("COM이 승리하였습니다");
     } else {
       showText("비겼습니다");
@@ -37,16 +37,25 @@ let turnDisplay = (shotLeft) => {
 };
 
 // -------------------initial settings --------------------------------
-let isComTurn = true;
-userBtnLock(isComTurn);
-let shotLeft = 3;
-turnDisplay(shotLeft);
-let comScore = 0;
-let userScore = 0;
-
-let pointScore2 = 0.5;
-let pointScore3 = 0.33;
-
+// let pointScore2 = 0.5;
+// let pointScore3 = 0.33;
+// object
+let com = {
+  score: 0,
+  pointScore2: 0.5,
+  pointScore3: 0.33,
+};
+let user = {
+  score: 0,
+  pointScore2: 0.5,
+  pointScore3: 0.33,
+};
+let game = {
+  isComTurn: true,
+  shotLeft: 3,
+};
+userBtnLock(game.isComTurn);
+turnDisplay(game.shotLeft);
 // ---- showText ----
 let showText = (text) => {
   let textElem = document.querySelector("#text");
@@ -56,25 +65,25 @@ let showText = (text) => {
 let comBtns = document.querySelectorAll(".btn-com");
 //-------------------------turn change function------------
 let turnChange = () => {
-  isComTurn = !isComTurn;
-  console.log(`comTurn : ${isComTurn}`);
+  game.isComTurn = !game.isComTurn;
+  // console.log(`comTurn : ${game.isComTurn}`);
 };
 //
 let updateComScore = (score) => {
-  comScore += score;
+  com.score += score;
   let comScoreElem = document.querySelector("#com-score");
-  comScoreElem.innerHTML = comScore;
+  comScoreElem.innerHTML = com.score;
 };
 let updateUserScore = (score) => {
-  userScore += score;
+  user.score += score;
   let userScoreElem = document.querySelector("#user-score");
-  userScoreElem.innerHTML = userScore;
+  userScoreElem.innerHTML = user.score;
 };
 //-------------------------com part------------------------
 
 let onComShoot = () => {
   updateAi();
-  if (!isComTurn) {
+  if (!game.isComTurn) {
     showText("USER 차례입니다!");
     return;
   }
@@ -82,7 +91,7 @@ let onComShoot = () => {
   let shootType = Math.random() < 0.5 ? 2 : 3;
   if (shootType === 2) {
     // 2점슛 성공확률 50%
-    if (Math.random() < pointScore2) {
+    if (Math.random() < com.pointScore2) {
       showText("COM 2점슛을 성공!");
       updateComScore(2);
     } else {
@@ -90,7 +99,7 @@ let onComShoot = () => {
     }
   } else {
     // 3점 슛 성공확률 33%
-    if (Math.random() < pointScore3) {
+    if (Math.random() < com.pointScore3) {
       showText("COM 3점슛을 성공!");
       updateComScore(3);
     } else {
@@ -101,14 +110,14 @@ let onComShoot = () => {
   // 턴 전환
   turnChange();
   // btnLock(isComTurn);
-  comBtnLock(!isComTurn);
-  userBtnLock(isComTurn);
-  turnDisplay(shotLeft);
+  comBtnLock(!game.isComTurn);
+  userBtnLock(game.isComTurn);
+  turnDisplay(game.shotLeft);
 };
 //-------------------------user part------------------------
 
 let onUserShoot = (shootType) => {
-  if (isComTurn) {
+  if (game.isComTurn) {
     showText("COM 차례입니다!");
     return;
   }
@@ -133,14 +142,14 @@ let onUserShoot = (shootType) => {
   // 턴 전환
   turnChange();
   // btnLock(isComTurn);
-  comBtnLock(!isComTurn);
-  userBtnLock(isComTurn);
-  shotLeft--;
-  turnDisplay(shotLeft);
+  comBtnLock(!game.isComTurn);
+  userBtnLock(game.isComTurn);
+  game.shotLeft--;
+  turnDisplay(game.shotLeft);
 };
 //---- com AI ----
 let updateAi = () => {
-  let diff = userScore - comScore;
+  let diff = user.score - com.score;
   if (diff >= 10) {
     pointScore2 = 0.6;
     pointScore3 = 0.38;
