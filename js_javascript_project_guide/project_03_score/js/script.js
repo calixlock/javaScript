@@ -68,6 +68,7 @@ let turnChange = () => {
   // console.log(`comTurn : ${game.isComTurn}`);
   comBtnLock(!game.isComTurn);
   userBtnLock(game.isComTurn);
+  turnDisplay(game.shotLeft);
 };
 //
 let updateComScore = (score) => {
@@ -100,9 +101,6 @@ let onComShoot = () => {
 
   // 턴 전환
   turnChange();
-  // btnLock(isComTurn);
-
-  turnDisplay(game.shotLeft);
 };
 //-------------------------user part------------------------
 
@@ -120,10 +118,8 @@ let onUserShoot = (shootType) => {
   }
 
   // 턴 전환
-  turnChange();
-  // btnLock(isComTurn);
   game.shotLeft--;
-  turnDisplay(game.shotLeft);
+  turnChange();
 };
 //---- com AI ----
 let updateAi = () => {
