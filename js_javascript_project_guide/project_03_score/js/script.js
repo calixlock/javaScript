@@ -44,6 +44,9 @@ turnDisplay(shotLeft);
 let comScore = 0;
 let userScore = 0;
 
+let pointScore2 = 0.5;
+let pointScore3 = 0.33;
+
 // ---- showText ----
 let showText = (text) => {
   let textElem = document.querySelector("#text");
@@ -70,6 +73,7 @@ let updateUserScore = (score) => {
 //-------------------------com part------------------------
 
 let onComShoot = () => {
+  updateAi();
   if (!isComTurn) {
     showText("USER 차례입니다!");
     return;
@@ -78,7 +82,7 @@ let onComShoot = () => {
   let shootType = Math.random() < 0.5 ? 2 : 3;
   if (shootType === 2) {
     // 2점슛 성공확률 50%
-    if (Math.random() < 0.5) {
+    if (Math.random() < pointScore2) {
       showText("COM 2점슛을 성공!");
       updateComScore(2);
     } else {
@@ -86,7 +90,7 @@ let onComShoot = () => {
     }
   } else {
     // 3점 슛 성공확률 33%
-    if (Math.random() < 0.33) {
+    if (Math.random() < pointScore3) {
       showText("COM 3점슛을 성공!");
       updateComScore(3);
     } else {
@@ -133,4 +137,21 @@ let onUserShoot = (shootType) => {
   userBtnLock(isComTurn);
   shotLeft--;
   turnDisplay(shotLeft);
+};
+//---- com AI ----
+let updateAi = () => {
+  let diff = userScore - comScore;
+  if (diff >= 10) {
+    pointScore2 = 0.6;
+    pointScore3 = 0.38;
+  } else if (diff >= 6) {
+    pointScore2 = 0.4;
+    pointScore3 = 0.33;
+  } else if (diff <= -10) {
+    pointScore2 = 0.3;
+    pointScore3 = 0.28;
+  } else if (diff <= -6) {
+    pointScore2 = 0.4;
+    pointScore3 = 0.28;
+  }
 };
