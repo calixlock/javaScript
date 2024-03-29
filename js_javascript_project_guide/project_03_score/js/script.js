@@ -1,13 +1,15 @@
 //-------------------------btn activation -----------------
 let comBtnLock = (flag) => {
-  let comBtns = document.querySelectorAll(".btn-com");
+  let comBtns = $(".btn-com");
   for (let i = 0; i < comBtns.length; i++) {
     comBtns[i].disabled = flag;
   }
 };
 let userBtnLock = (flag) => {
   {
-    let userBtns = document.querySelectorAll(".btn-user");
+    // let userBtns = document.querySelectorAll(".btn-user");
+    let userBtns = $(".btn-user");
+
     for (let i = 0; i < userBtns.length; i++) {
       // 버튼 비활성화
       userBtns[i].disabled = flag;
@@ -18,7 +20,7 @@ let userBtnLock = (flag) => {
 };
 //------- turn display & result display
 let turnDisplay = (shotLeft) => {
-  let shotLeftElem = document.querySelector("#shots-left");
+  let shotLeftElem = $("#shots-left");
   shotLeftElem.innerHTML = shotLeft;
   if (shotLeft === 0) {
     if (user.score > com.score) {
@@ -57,11 +59,11 @@ turnDisplay(game.shotLeft);
 
 // ---- showText ----
 let showText = (text) => {
-  let textElem = document.querySelector("#text");
+  let textElem = $("#text");
   textElem.innerHTML = text;
 };
 // ----element -------------------------------------------------------
-let comBtns = document.querySelectorAll(".btn-com");
+let comBtns = $(".btn-com");
 //-------------------------turn change function------------
 let turnChange = () => {
   game.isComTurn = !game.isComTurn;
@@ -73,12 +75,12 @@ let turnChange = () => {
 //
 let updateComScore = (score) => {
   com.score += score;
-  let comScoreElem = document.querySelector("#com-score");
+  let comScoreElem = $("#com-score");
   comScoreElem.innerHTML = com.score;
 };
 let updateUserScore = (score) => {
   user.score += score;
-  let userScoreElem = document.querySelector("#user-score");
+  let userScoreElem = $("#user-score");
   userScoreElem.innerHTML = user.score;
 };
 //-------------------------com part------------------------
