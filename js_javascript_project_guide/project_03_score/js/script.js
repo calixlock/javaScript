@@ -21,7 +21,8 @@ let userBtnLock = (flag) => {
 //------- turn display & result display
 let turnDisplay = (shotLeft) => {
   let shotLeftElem = $("#shots-left");
-  shotLeftElem.innerHTML = shotLeft;
+  shotLeftElem.html(shotLeft);
+
   if (shotLeft === 0) {
     if (user.score > com.score) {
       showText("USER가 승리하였습니다");
@@ -60,7 +61,7 @@ turnDisplay(game.shotLeft);
 // ---- showText ----
 let showText = (text) => {
   let textElem = $("#text");
-  textElem.innerHTML = text;
+  textElem.html(text);
 };
 // ----element -------------------------------------------------------
 let comBtns = $(".btn-com");
@@ -76,12 +77,12 @@ let turnChange = () => {
 let updateComScore = (score) => {
   com.score += score;
   let comScoreElem = $("#com-score");
-  comScoreElem.innerHTML = com.score;
+  comScoreElem.html(com.score);
 };
 let updateUserScore = (score) => {
   user.score += score;
   let userScoreElem = $("#user-score");
-  userScoreElem.innerHTML = user.score;
+  userScoreElem.html(user.score);
 };
 //-------------------------com part------------------------
 
