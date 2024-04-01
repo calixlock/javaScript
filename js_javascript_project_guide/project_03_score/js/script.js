@@ -39,8 +39,7 @@ let game = {
   isComTurn: true,
   shotLeft: 3,
 };
-userBtnLock(game.isComTurn);
-turnDisplay(game.shotLeft);
+// turnDisplay(game.shotLeft);
 
 // ---- showText ----
 let showText = (text) => {
@@ -133,3 +132,21 @@ let updateAi = () => {
     pointScore3 = 0.28;
   }
 };
+// domContectLoaded(태그기준) 모든 dom 엘리먼트들이 준비되었을때 발생
+// window.onload(모든소스기준)와 비슷하나 약간 다르다.
+$(function () {
+  userBtnLock(game.isComTurn);
+  comBtnLock(game.isComTurn);
+  showText(3);
+  setTimeout(() => {
+    showText(2);
+    setTimeout(() => {
+      showText(1);
+      setTimeout(() => {
+        showText("컴퓨터부터 시작합니다!");
+        comBtnLock(!game.isComTurn);
+        // 콜백지옥
+      }, 1000);
+    }, 1000);
+  }, 1000);
+});
