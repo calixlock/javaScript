@@ -1,22 +1,9 @@
 //-------------------------btn activation -----------------
 let comBtnLock = (flag) => {
-  let comBtns = $(".btn-com");
-  for (let i = 0; i < comBtns.length; i++) {
-    comBtns[i].disabled = flag;
-  }
+  $(".btn-com").prop("disabled", flag);
 };
 let userBtnLock = (flag) => {
-  {
-    // let userBtns = document.querySelectorAll(".btn-user");
-    let userBtns = $(".btn-user");
-
-    for (let i = 0; i < userBtns.length; i++) {
-      // 버튼 비활성화
-      userBtns[i].disabled = flag;
-      // 버튼 없애기
-      // userBtns[i].style.display = "none";
-    }
-  }
+  $(".btn-user").prop("disabled", flag);
 };
 //------- turn display & result display
 let turnDisplay = (shotLeft) => {
@@ -31,11 +18,8 @@ let turnDisplay = (shotLeft) => {
     } else {
       showText("비겼습니다");
     }
-    // 버튼 잠금
-
-    for (let i = 0; i < comBtns.length; i++) {
-      comBtns[i].disabled = true;
-    }
+    // 버튼 잠금 // prop를 통해 속성값 전환
+    $(".btn-com").prop("disabled", true);
   }
 };
 
@@ -61,8 +45,12 @@ turnDisplay(game.shotLeft);
 // ---- showText ----
 let showText = (text) => {
   let textElem = $("#text");
-  textElem.html(text);
+  textElem.fadeOut(300, () => {
+    textElem.html(text);
+    textElem.fadeIn(100);
+  });
 };
+
 // ----element -------------------------------------------------------
 let comBtns = $(".btn-com");
 //-------------------------turn change function------------
@@ -77,12 +65,17 @@ let turnChange = () => {
 let updateComScore = (score) => {
   com.score += score;
   let comScoreElem = $("#com-score");
-  comScoreElem.html(com.score);
+
+  comScoreElem.animateNumber({
+    number: com.score,
+  });
 };
 let updateUserScore = (score) => {
   user.score += score;
   let userScoreElem = $("#user-score");
-  userScoreElem.html(user.score);
+  userScoreElem.animateNumber({
+    number: user.score,
+  });
 };
 //-------------------------com part------------------------
 
@@ -115,11 +108,10 @@ let onUserShoot = (shootType) => {
 
   if (Math.random() < user["point_" + shootType]) {
     showText("USER " + shootType + "점슛을 성공!");
-    updateComScore(shootType);
+    updateUserScore(shootType);
   } else {
     showText("USER " + shootType + "점슛을 실패!");
   }
-
   // 턴 전환
   game.shotLeft--;
   turnChange();
