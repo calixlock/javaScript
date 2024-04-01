@@ -132,21 +132,39 @@ let updateAi = () => {
     pointScore3 = 0.28;
   }
 };
+// ----- countdown -----
 // domContectLoaded(태그기준) 모든 dom 엘리먼트들이 준비되었을때 발생
 // window.onload(모든소스기준)와 비슷하나 약간 다르다.
+// $(function () {
+//   userBtnLock(game.isComTurn);
+//   comBtnLock(game.isComTurn);
+//   showText(3);
+//   setTimeout(() => {
+//     showText(2);
+//     setTimeout(() => {
+//       showText(1);
+//       setTimeout(() => {
+//         showText("컴퓨터부터 시작합니다!");
+//         comBtnLock(!game.isComTurn);
+//         // 콜백지옥
+//       }, 1000);
+//     }, 1000);
+//   }, 1000);
+// });
+// promise객체 사용
 $(function () {
   userBtnLock(game.isComTurn);
   comBtnLock(game.isComTurn);
-  showText(3);
-  setTimeout(() => {
-    showText(2);
-    setTimeout(() => {
-      showText(1);
-      setTimeout(() => {
-        showText("컴퓨터부터 시작합니다!");
-        comBtnLock(!game.isComTurn);
-        // 콜백지옥
-      }, 1000);
-    }, 1000);
-  }, 1000);
+  showTextWithDelay(3, 1000)
+    .then(() => showTextWithDelay(2, 1000))
+    .then(() => showTextWithDelay(1, 1000))
+    .then(() => showTextWithDelay("컴퓨터부터 시작합니다!", 1000))
+    .then(() => comBtnLock(!game.isComTurn))
+    .catch((error) => console.error("에러 발생:", error));
 });
+function showTextWithDelay(text, delayTime) {
+  return new Promise((resolve, reject) => {
+    showText(text);
+    setTimeout(resolve, delayTime);
+  });
+}
