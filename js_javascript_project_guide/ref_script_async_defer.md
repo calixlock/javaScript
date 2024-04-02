@@ -34,6 +34,6 @@
 
 ---
 
-### head > scripts > defer 적용
+### head > scripts > defer 적용 / 안전
 
 > ![alt text](<드림코딩 - 자바스크립트 2. 콘솔에 출력, script async 와 defer의 차이점 및 앞으로 자바스크립트 공부 방향 프론트엔드 개발자 입문편 (JavaScript ES5+) [tJieVCgGzhs - 1280x720 - 14m24s].png>)
