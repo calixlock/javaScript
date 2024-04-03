@@ -1,1 +1,27 @@
 /* css */
+.documnet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-box {
+  display: flex;
+  justify-content: center;
+}
+.book-container {
+  border: 2px solid red;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-content: center; */
+}
+.book-title {
+  border: 2px solid green;
+
+  display: flex;
+  justify-content: space-around;
+  /* align-items: center; */
+}
+.book-image {
+  display: flex;
+  justify-content: space-around;
+}
