@@ -1,17 +1,13 @@
-// javaScript
-let a = $("input");
-// a.hide();
-let elem = $(".abc");
-// elem.style.display = "none";
-let elem2 = $(".a");
-// console.log(elem2);
-let elem3 = $(".c");
-console.log(elem2.length);
-if (elem3.length === 0) {
-  elem3.hide();
-}
-if (elem2.length === 2) {
-  elem2.hide();
-} else {
-  elem2.show();
-}
+import { kakao_rest_api } from "../api/kakao.js";
+let REST_API_KEY = kakao_rest_api;
+// console.log(REST_API_KEY);
+$.ajax({
+  method: "GET",
+  url: "https://dapi.kakao.com/v3/search/book",
+  data: { query: "it" },
+  headers: {
+    Authorization: `KakaoAK ${REST_API_KEY}`,
+  },
+}).done(function (msg) {
+  alert("Data Saved: " + msg);
+});
