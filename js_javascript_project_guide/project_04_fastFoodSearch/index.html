@@ -9,15 +9,18 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- jquery -->
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-    crossorigin="anonymous" defer></script>
+    crossorigin="anonymous"></script>
   <!-- js -->
-  <script src="js/script.js" defer></script>
+  <script type="module" src="js/script.js" defer></script>
 </head>
 
 <body>
   <div class="container">
     <div class="header">
-      <div class="title">TEST 찾기</div>
+      <div class="title">
+        <div class="sub-title">공공데이터 API</div>
+        대전광역시 의료기관 찾기
+      </div>
       <div class="search">
         <input id="txt-search"" type=" text" value="텍스트를 입력하세요.">
         <button class="btn-search">검색</button>
@@ -29,9 +32,19 @@
       </div>
       <div class="list">test List</div>
       <div class="paging">Paging 1,2,3,4 </div>
-
     </div>
   </div>
+
+
+  <div id="item-template" class="item">
+    <div class="item-no">num</div>
+    <div class="item-detail">
+      <div class="item-name">name</div>
+      <div class="item-addr">addr</div>
+    </div>
+  </div>
+
+
 </body>
 
 </html>
