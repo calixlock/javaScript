@@ -34,6 +34,18 @@
   - 대전광역시 - 의료기관
     - https://www.data.go.kr/data/15109285/openapi.do
 
+> 페이징 기능과 서치 기능 수정 필요
+
+---
+
+### project_05 | 마이트립 어드바이저
+
+- API server Error 발생 - 진행중
+
+  - https://javascript-basic.appspot.com/searchLocation
+
+- 대체 api 탐색 후 진행 예정
+
 ---
 
 ## ref 형식

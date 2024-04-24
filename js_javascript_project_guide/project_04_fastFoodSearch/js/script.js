@@ -5,7 +5,7 @@ let apiKey = encode_key;
 let apiURL = "https://apis.data.go.kr/6300000/mdlcnst/getmdlcnst";
 let maxTotal = "114";
 let pageNo = "1";
-let numOfRows = "100";
+let numOfRows = "10";
 
 const url =
   apiURL +
@@ -16,11 +16,17 @@ const url =
   "&numOfRows=" +
   numOfRows;
 
-$(function () {
+let cl = console.log;
+
+$(".btn-search").click(() => {
+  let searchKeyword = $("#txt-search").val();
+  cl(searchKeyword);
+  // ajax api 데이터 호출
   $.ajax({
     url: url, // 공공데이터 API 엔드포인트 URL
     method: "GET", // GET 요청
     dataType: "json", // 응답 데이터 타입은 JSON
+    data: searchKeyword,
     success: function (response) {
       let list = response.response.body.items;
       console.log(list);
