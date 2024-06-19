@@ -10,3 +10,14 @@ let testFunc2 = () => {
 let testFunc3 = () => {
   document.querySelector("section").innerHTML = "<strong>t2</strong>";
 };
+// Attribute 변경
+let input = document.querySelector(".input");
+let setAttr = () => {
+  input.setAttribute("placeholder", "hint");
+};
+let removeAttr = () => {
+  input.removeAttribute("placeholder");
+};
+let requireAttr = () => {
+  input.setAttribute("required", "");
+};
