@@ -21,3 +21,6 @@ let removeAttr = () => {
 let requireAttr = () => {
   input.setAttribute("required", "");
 };
+// html 요소 스타일링-------------------------
+let helloItem = document.querySelector(".hello");
+console.log(helloItem);
