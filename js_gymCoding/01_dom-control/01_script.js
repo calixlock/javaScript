@@ -24,3 +24,6 @@ let requireAttr = () => {
 // html 요소 스타일링-------------------------
 let helloItem = document.querySelector(".hello");
 console.log(helloItem);
+helloItem.classList.add("dark", "blue");
+helloItem.classList.add("color_pink");
+helloItem.classList.remove("color_pink");
