@@ -28,6 +28,8 @@ addBtn.addEventListener("click", () => {
   });
   li.appendChild(btn);
   ul.appendChild(li);
+  // 추가후 비어주기
+  inputBox.value = "";
 });
 //특정위치에 추가------------------------------
 let addBeforeBtn = document.querySelector("#before");
