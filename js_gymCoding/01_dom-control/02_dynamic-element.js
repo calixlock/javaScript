@@ -1,6 +1,8 @@
 let cl = console.log;
 let addBtn = document.getElementById("button");
 let inputBox = document.querySelector(".input");
+let removeBtn = document.querySelector(".remove-btn");
+
 // 빈 값 체크 함수
 function checkInput() {
   if (inputBox.value === "") {
@@ -20,6 +22,10 @@ addBtn.addEventListener("click", () => {
   let btn = document.createElement("button");
   btn.textContent = "x";
   btn.classList.add("remove-btn");
+  //remove-----------------------
+  btn.addEventListener("click", (event) => {
+    event.target.parentNode.remove();
+  });
   li.appendChild(btn);
   ul.appendChild(li);
 });
@@ -40,4 +46,8 @@ addBeforeBtn.addEventListener("click", () => {
   li.appendChild(btn);
   // 태그 반영
   ul.insertBefore(li, targetLi);
+});
+removeBtn.addEventListener("click", (event) => {
+  cl(event.target.parentNode);
+  event.target.parentNode.remove();
 });
