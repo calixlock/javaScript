@@ -16,6 +16,11 @@ addBtn.addEventListener("click", () => {
   let li = document.createElement("li");
   let ul = document.querySelector("ul.list");
   li.textContent = inputBox.value;
+
+  let btn = document.createElement("button");
+  btn.textContent = "x";
+  btn.classList.add("remove-btn");
+  li.appendChild(btn);
   ul.appendChild(li);
 });
 //특정위치에 추가------------------------------
@@ -27,5 +32,12 @@ addBeforeBtn.addEventListener("click", () => {
   let targetLi = document.querySelector(".target");
   // 빈값처리
   li.textContent = inputBox.value;
+  // btn 추가
+  let btn = document.createElement("button");
+  btn.textContent = "x";
+  btn.classList.add("remove-btn");
+  // 버튼 반영
+  li.appendChild(btn);
+  // 태그 반영
   ul.insertBefore(li, targetLi);
 });
