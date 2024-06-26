@@ -24,7 +24,7 @@ addBtn.addEventListener("click", () => {
   let li = document.createElement("li");
   let ul = document.querySelector("ul.list");
   li.textContent = inputBox.value;
-
+  // btn 추가
   let btn = document.createElement("button");
   btn.textContent = "x";
   btn.classList.add("remove-btn");
@@ -47,9 +47,14 @@ addBeforeBtn.addEventListener("click", () => {
   let btn = document.createElement("button");
   btn.textContent = "x";
   btn.classList.add("remove-btn");
+  //remove-----------------------
+  btn.addEventListener("click", removeParentNode);
   // 버튼 반영
   li.appendChild(btn);
   // 태그 반영
   ul.insertBefore(li, targetLi);
 });
 removeBtn.addEventListener("click", removeParentNode);
+// 초기 Dark 모드 설정
+let body = document.querySelector("body");
+body.classList.add("dark");
