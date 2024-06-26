@@ -55,6 +55,7 @@ addBeforeBtn.addEventListener("click", () => {
   ul.insertBefore(li, targetLi);
 });
 removeBtn.addEventListener("click", removeParentNode);
+
 // 초기 Dark 모드 설정
 let body = document.querySelector("body");
 body.classList.add("dark");
