@@ -15,8 +15,7 @@ let selectItem = (event) => {
   selectedItem.textContent = event.target.textContent;
 };
 
-itemList[0].addEventListener("click", selectItem);
-itemList[1].addEventListener("click", selectItem);
-itemList[2].addEventListener("click", selectItem);
-itemList[3].addEventListener("click", selectItem);
-// 함수
+// 각 itemList 요소에 이벤트 리스너 추가
+itemList.forEach((item) => {
+  item.addEventListener("click", selectItem);
+});
