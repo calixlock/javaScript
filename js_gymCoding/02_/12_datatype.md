@@ -40,32 +40,28 @@
       ```
 
   - object type
-
-        - 값을 여러개 가질 수 있다.
-          - 주소값(참조값)을 가진다.
-        - array
-
-          ```javascript
-          const arr1 = [1, 2, 3];
-          arr1.push(88);
-          arr1.push("stringNum");
-          arr1.push(function fun1() {
-            console.log("arr");
-          });
-          ```
-        - date
-        - object
-
-        ```javascript
-        let obj_01 = {
-          key_01 : "value_01",
-          name: "kim",
-          age: 25,
-          fun1() {
-            console.log("arr")
-          }
-        }
-        ```
-
-        - math
-        - etc...
+    - 값을 여러개 가질 수 있다.
+      - 주소값(참조값)을 가진다.
+    - array
+      ```javascript
+      const arr1 = [1, 2, 3];
+      arr1.push(88);
+      arr1.push("stringNum");
+      arr1.push(function fun1() {
+        console.log("arr");
+      });
+      ```
+    - date
+    - object
+      ```javascript
+      let obj_01 = {
+        key_01: "value_01",
+        name: "kim",
+        age: 25,
+        fun1() {
+          console.log("arr");
+        },
+      };
+      ```
+    - math
+    - etc...
