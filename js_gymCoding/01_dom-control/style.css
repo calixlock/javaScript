@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .dark {
   background-color: black;
   color: white;
@@ -12,4 +17,9 @@
 
 img {
   width: 200px;
+}
+.rectangle {
+  background-color: black;
+  width: 100px;
+  height: 100px;
 }
