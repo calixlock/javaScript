@@ -9,7 +9,11 @@
       - <span style="color:#ffd33d">값이 없는 경우</span> : `false`
         - `0`,`-0`,`0n`,`null`,`undefined`,`""(빈 문자열)`,`NaN`,
     - switch
-      - `case`,`value`,`break`
+      - `case` `value` : 일치 시 해당하는 명령 수행.
+      - `break` : switch문 종료.
+      - `break`가 없는 경우
+        - case value가 일치한 순서부터 모든 명령 수행.
+      - `default` : 일치하는 case value가 없는 경우 수행.
   - loop statement : 반복문
     - for
     - while
