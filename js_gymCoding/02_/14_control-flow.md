@@ -4,9 +4,9 @@
       - `<`, `>`,`<=`, `>=`,`==`,`!=` : 비교 연산자
       - `&&`,`||`,`!` : 논리 연산자 ( `and`,`or`,`not` )
       - `if`,`else if`,`else`
-      - :star: 값이 존재할 경우 : `true`
+      - <span style="color:#ffd33d">값이 존재할 경우</span> : `true`
         - `숫자`,`문자`,`1`
-      - :star: 값이 없는 경우 : `false`
+      - <span style="color:#ffd33d">값이 없는 경우</span> : `false`
         - `0`,`-0`,`0n`,`null`,`undefined`,`""(빈 문자열)`,`NaN`,
     - switch
       - `case`,`value`,`break`
@@ -16,5 +16,4 @@
   - branching statement : 분기문
     - break
     - continue
-  - etc
-    - forEach
+  - etc - forEach
