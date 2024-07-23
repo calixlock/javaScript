@@ -11,6 +11,7 @@ let btn = document.querySelector("#btn");
 let email_el = document.querySelector("[name=email]");
 let pwd_el = document.querySelector("[name=pwd]");
 console.log(email_el);
+
 btn.addEventListener("click", () => {
   let email = email_el.value;
   let pwd = pwd_el.value;
